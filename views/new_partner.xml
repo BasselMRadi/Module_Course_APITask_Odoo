@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_new_partner_form" model="ir.ui.view">
+        <field name="name">new partner</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="user_type"/>
+                    <field name="date_of_birth"/>
+                    <field name="token" readonly="1"/>
+                    <field name="age"/>
+                    <field name="years_of_experience"/>
+                    <field name="course_ids" widget="many2many_tags"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="new_partner_action" model="ir.actions.act_window">
+        <field name="name">new_partner_view</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form,search,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your First Partner 😄!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="new_partner_sub_menu"
+              name="Partner"
+              parent="course_management_root_menu"
+              sequence="1" action="new_partner_action"/>
+</odoo>

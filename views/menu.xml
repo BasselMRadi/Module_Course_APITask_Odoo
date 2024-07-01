@@ -1,0 +1,6 @@
+<odoo>
+    <menuitem id="course_management_root_menu"
+              name="Course Management" sequence="1"/>
+    <!--              web_icon="om_hospital,static/description/hospital.png"/>-->
+
+</odoo>
